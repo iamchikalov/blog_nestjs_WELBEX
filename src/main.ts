@@ -23,6 +23,7 @@ async function bootstrap() {
   SwaggerModule.setup('api-docs', app, document)
 
   const config = app.get(ConfigService)
+  app.enableCors()
 
   await app.listen(config.get<number>('PORT'), config.get<string>('HOST'))
   console.log(`Application listening: http://${config.get<number>('HOST')}:${config.get<string>('PORT')}`)
